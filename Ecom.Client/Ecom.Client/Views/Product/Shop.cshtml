@@ -1,0 +1,221 @@
+﻿@model IEnumerable<Ecom.Client.DTO.Response.ProductDTOResponse>
+@{
+    ViewData["Title"] = "Shop - eKom";
+
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E-Komalan - Shop</title>
+
+
+    <!-- Css Styles -->
+    @* <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> *@
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+
+    <!-- Featured Section Begin -->
+    <section class="featured spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>SHOP</h2>
+                    </div>
+                    <div class="featured__controls">
+                        <ul>
+                            <li class="active" data-filter=".ellam">All</li>
+                            <li data-filter=".clothing">Clothing & Apparel</li>
+                            <li data-filter=".electronics">Electronics</li>
+                            <li data-filter=".home">Home & Furniture</li>
+                            <li data-filter=".books">Books & Media</li>
+                            <li data-filter=".food">Food & Groceries</li>
+                            <li data-filter=".sports">Sports & Outdoors</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row featured__filter">
+                @foreach (var item in Model)
+                {
+                    @if (item.quantity > 0)
+                    {
+                        <div class="col-lg-3 col-md-4 col-sm-6 mix ellam">
+                            <div class="featured__item">
+                                <div class="featured__item__pic set-bg" data-setbg="@ViewBag.URL/@item.image">
+                                    <ul class="featured__item__pic__hover">
+                                        <li><a asp-action="AddItem" asp-controller="Cart" asp-route-id="@item.id"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="featured__item__text">
+                                    <h6>@item.name</h6>
+                                    <h5>₹@item.price</h5>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                   
+                }
+
+                @foreach (var item in Model)
+                {
+                    @if (item.categoryId == 1 && item.quantity > 0)
+                    {
+                        <div class="col-lg-3 col-md-4 col-sm-6  mix clothing">
+                            <div class="featured__item">
+                                <div class="featured__item__pic set-bg" data-setbg="@ViewBag.URL/@item.image">
+                                    <ul class="featured__item__pic__hover">
+                                        <li><a asp-action="AddItem" asp-controller="Cart" asp-route-id="@item.id"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="featured__item__text">
+                                    <h6>@item.name</h6>
+                                    <h5>₹@item.price</h5>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+                @foreach (var item in Model)
+                {
+                    @if (item.categoryId == 2 && item.quantity > 0)
+                    {
+                        <div class="col-lg-3 col-md-4 col-sm-6  mix electronics">
+
+                            <div class="featured__item">
+                                <div class="featured__item__pic set-bg" data-setbg="@ViewBag.URL/@item.image">
+                                    <ul class="featured__item__pic__hover">
+                                        <li><a asp-action="AddItem" asp-controller="Cart" asp-route-id="@item.id"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="featured__item__text">
+                                    <h6>@item.name</h6>
+                                    <h5>₹@item.price</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                @foreach (var item in Model)
+                {
+                    @if (item.categoryId == 3 && item.quantity > 0)
+                    {
+                        <div class="col-lg-3 col-md-4 col-sm-6  mix home">
+
+                            <div class="featured__item">
+                                <div class="featured__item__pic set-bg" data-setbg="@ViewBag.URL/@item.image">
+                                    <ul class="featured__item__pic__hover">
+                                        <li><a asp-action="AddItem" asp-controller="Cart" asp-route-id="@item.id"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="featured__item__text">
+                                    <h6>@item.name</h6>
+                                    <h5>₹@item.price</h5>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+                @foreach (var item in Model)
+                {
+                    @if (item.categoryId == 4 && item.quantity > 0)
+                    {
+                        <div class="col-lg-3 col-md-4 col-sm-6  mix books">
+
+                            <div class="featured__item">
+                                <div class="featured__item__pic set-bg" data-setbg="@ViewBag.URL/@item.image">
+                                    <ul class="featured__item__pic__hover">
+                                        <li><a asp-action ="AddItem" asp-controller="Cart" asp-route-id="@item.id"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="featured__item__text">
+                                    <h6>@item.name</h6>
+                                    <h5>₹@item.price</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                @foreach (var item in Model)
+                {
+                    @if (item.categoryId == 5 && item.quantity > 0)
+                    {
+                        <div class="col-lg-3 col-md-4 col-sm-6  mix food">
+
+                            <div class="featured__item">
+                                <div class="featured__item__pic set-bg" data-setbg="@ViewBag.URL/@item.image">
+                                    <ul class="featured__item__pic__hover">
+                                        <li><a asp-action="AddItem" asp-controller="Cart" asp-route-id="@item.id"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="featured__item__text">
+                                    <h6>@item.name</h6>
+                                    <h5>₹@item.price</h5>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+                @foreach (var item in Model)
+                {
+                    @if (item.categoryId == 6 && item.quantity > 0)
+                    {
+                        <div class="col-lg-3 col-md-4 col-sm-6  mix sports">
+
+                            <div class="featured__item">
+                                <div class="featured__item__pic set-bg" data-setbg="@ViewBag.URL/@item.image">
+                                    <ul class="featured__item__pic__hover">
+                                        <li><a asp-action="AddItem" asp-controller="Cart" asp-route-id="@item.id"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="featured__item__text">
+                                    <h6>@item.name</h6>
+                                    <h5>₹@item.price</h5>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+    <!-- Featured Section End -->
+    <!-- Footer Section End -->
+    <!-- Js Plugins -->
+    <script src="~/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/jquery.nice-select.min.js"></script>
+    <script src="~/assets/js/jquery-ui.min.js"></script>
+    <script src="~/assets/js/jquery.slicknav.js"></script>
+    <script src="~/assets/js/mixitup.min.js"></script>
+    <script src="~/assets/js/owl.carousel.min.js"></script>
+    <script src="~/assets/js/main.js"></script>
+
+
+
+</body>

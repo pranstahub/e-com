@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Ecom.Client.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/style.css" type="text/css">
+
+</head>
+<body>
+
+    <header>
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="header__logo">
+
+                            <a asp-controller="Home" asp-action="Index"><img src="~/assets/img/logo.png" style="width:50%; padding-top:10px"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <nav class="header__menu">
+                            <ul>
+                                <li><a asp-controller="Home" asp-action="Index" >Home</a></li>
+                                <li><a asp-controller="Product" asp-action="Shop">Shop</a></li>
+                                <li><a asp-controller="Order" asp-action="Index">Orders</a></li>
+                                <li><a asp-controller="Product" asp-action="Index">Products</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="header__cart">
+                            <ul>
+                                <li><a asp-action="Index" asp-controller="Cart"><i class="fa fa-shopping-cart" style="font-size:x-large"></i></a></li>
+                                <li>
+                                    <div class="header__top__right__auth">
+                                        <a asp-action="ViewProfile" asp-controller="Customer"><i class="fa fa-user" style="font-size:x-large"></i></a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a asp-action="SignOut" asp-controller="Account" style="-webkit-text-fill-color:red">
+                                        <i class="fa fa-sign-out" style="font-size:larger;"></i>
+                                        Log Out
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="humberger__open">
+                    <i class="fa fa-bars"></i>
+                </div>
+            </div>
+            <hr style="color:#7fad39; height:2px" />
+            </div>
+
+           @*  <nav class="navbar navbar-expand-sm navbar-toggleable-sm  rounded border-bottom box-shadow mb-3" style="background-color:#7fad39">
+                <div class="container-fluid">
+                    <a class="navbar-brand" style="-webkit-text-fill-color:whitesmoke; font-weight:bolder" asp-area="" asp-controller="Home" asp-action="Index">E-KOMALAN</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link" style="-webkit-text-fill-color:white; font-weight:bold" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="-webkit-text-fill-color:white; font-weight:bold" asp-area="" asp-controller="Product" asp-action="Shop">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="-webkit-text-fill-color:white; font-weight:bold" asp-area="" asp-controller="Order" asp-action="Index">Your Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="-webkit-text-fill-color:white; font-weight:bold" asp-area="" asp-controller="Product" asp-action="Index">Manage Products</a>
+                            </li>
+
+
+                        </ul>
+                        <div class="header__cart">
+                            <ul>
+                                <li><a asp-action="Index" asp-controller="Cart"> <i class="fa fa-shopping-cart" style="-webkit-text-fill-color:white;font-size:x-large"></i>  @* <span>3</span> </a></li>
+
+                                <li>
+                                    <div class="header__top__right__auth">
+                                        <a asp-action="ViewProfile" asp-controller="Customer"><i class="fa fa-user" style="-webkit-text-fill-color:white;font-size:x-large"></i></a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <a asp-action="SignOut" asp-controller="Account" style="-webkit-text-fill-color:red">
+                                        <i class="fa fa-sign-out" style="font-size:larger;"></i>
+                                        Log Out
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav> *@
+    </header>
+    <div class="container">
+        <br />
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- Js Plugins -->
+    <script src="~/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/jquery.nice-select.min.js"></script>
+    <script src="~/assets/js/jquery-ui.min.js"></script>
+    <script src="~/assets/js/jquery.slicknav.js"></script>
+    <script src="~/assets/js/mixitup.min.js"></script>
+    <script src="~/assets/js/owl.carousel.min.js"></script>
+    <script src="~/assets/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    @await Component.InvokeAsync("NToastNotify")
+</body>
+</html>

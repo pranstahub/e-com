@@ -1,0 +1,224 @@
+﻿@model List<Ecom.Client.DTO.Response.ProductDTOResponse>
+@{
+    int count = 0;
+    ViewData["Title"] = "Home - eKom";
+
+}
+
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E-Komalan - Home</title>
+
+    <!-- Css Styles -->
+    @* <link rel="stylesheet" href="~/assets/css/bootstrap.min.css" type="text/css">  *@
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Latest Product Section Begin -->
+    <section class="latest-product spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+
+                    <div class="latest-product__text">
+                        <h4>Categories</h4>
+                        <div class="latest-product__slider owl-carousel">
+
+                            <div class="latest-prdouct__slider__item">
+                                <a asp-action="Shop" asp-controller="Product" class="latest-product__item">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="latest-product__item__pic">
+                                                <img src="~/assets/img/clothing.jpg" class="rounded-2" alt="" style="width:100%; text-align:center">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="latest-product__item__text">
+                                                <h6 style="font-weight:bold">Clothing & Apparel</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="latest-product__item__pic">
+                                                <img src="~/assets/img/electronics.jpg" class="rounded-2" alt="" style="width:100%; text-align:center">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="latest-product__item__text">
+                                                <h6 style="font-weight:bold">Electronics</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="latest-product__item__pic">
+                                                <img src="~/assets/img/home.jpg" alt="" class="rounded-2" style="width:100%; text-align:center">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="latest-product__item__text">
+                                                <h6 style="font-weight:bold">Home & Furniture</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="latest-prdouct__slider__item">
+                                <a asp-action="Shop" asp-controller="Product" class="latest-product__item">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="latest-product__item__pic">
+                                                <img src="~/assets/img/books.png" alt="" class="rounded-2" style="width:100%; text-align:center">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="latest-product__item__text">
+                                                <h6 style="font-weight:bold">Books & Media</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="latest-product__item__pic">
+                                                <img src="~/assets/img/g.jpg" alt="" class="rounded-2" style="width:150%; text-align:center">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="latest-product__item__text">
+                                                <h6 style="font-weight:bold">Food & Groceries</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="latest-product__item__pic">
+                                                <img src="~/assets/img/outdoor.jpeg" alt="" class="rounded-2" style="width:130%; text-align:center">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="latest-product__item__text">
+                                                <h6 style="font-weight:bold;">Sports & Outdoors</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-4" style=" padding-top:10px">
+                    <div class="card rounded-3 border-1 " style="width:100%;  background-color:#f5f5f5; border-color:#7fad39">
+                        <div class="card-body">
+                            <h2 class="card-title" style="text-align:center; -webkit-text-fill-color:#7fad39">Welcome to</h2>
+
+                            <div class="row" style="text-align:center">
+                                <div class="col-md-12">
+                                    <img src="~/assets/img/logo.png" style="width:80%" />
+                                </div>
+                            </div>
+                            <br /><br />
+                            <div class="row" style="text-align:center">
+
+                                <div class="col-md-12">
+                                    <h5 style="-webkit-text-fill-color:grey">Logged in as:</h5>
+                                </div>
+                                <div class="col-md-12">
+                                    <i>@ViewData["name"] </i>
+                                </div>
+                                <br /><br />
+
+                                <br /><br />
+                                <div class="col-md-12">
+                                    <a class="btn btn-outline-danger" style="width:100%" asp-action="SignOut" asp-controller="Account">Log Out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-4">
+
+                    <div class="latest-product__text">
+                        <h4>Top Products</h4>
+                        <div class="latest-product__slider owl-carousel">
+                            @while (count < Model.Count())
+                            {
+                                <div class="latest-prdouct__slider__item">
+                                    @for (int i = count; i < Model.Count(); i++)
+                                    {
+                                        <a asp-action="Shop" asp-controller="Product" class="latest-product__item">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="latest-product__item__pic">
+                                                        <img src="@ViewBag.URL/@Model[i].image" alt="" style="width:100%; text-align:center">
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="latest-product__item__text">
+                                                        <h6>@Model[i].name</h6>
+                                                        <span>₹@Model[i].price</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </a>
+                                        count++;
+                                        if (count % 3 == 0)
+                                        {
+                                            break;
+                                        }
+                                    }
+                                </div>
+                            }
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest Product Section End -->
+    <!-- Js Plugins -->
+    <script src="~/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/jquery.nice-select.min.js"></script>
+    <script src="~/assets/js/jquery-ui.min.js"></script>
+    <script src="~/assets/js/jquery.slicknav.js"></script>
+    <script src="~/assets/js/mixitup.min.js"></script>
+    <script src="~/assets/js/owl.carousel.min.js"></script>
+    <script src="~/assets/js/main.js"></script>
+</body>

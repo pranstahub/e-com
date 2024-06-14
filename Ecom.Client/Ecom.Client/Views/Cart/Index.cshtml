@@ -1,0 +1,157 @@
+﻿@model IEnumerable<Ecom.Client.DTO.Response.CartItemDTOResponse>
+@{
+    ViewData["Title"] = "Cart - eKom";
+    dynamic sum = 0;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ogani | Template</title>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <div class="section-title">
+        <h2>CART</h2>
+    </div>
+    <!-- Shoping Cart Section Begin -->
+    <section class="shoping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <div class="card rounded-3 " style="width:100%;  background-color:#f5f5f5;">
+                        <div class="card-body">
+                            <div class="shoping__cart__table">
+                                <table>
+                                    <thead>
+                                        <tr style="text-align:center">
+
+                                            <th>Product</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr style="text-align:center">
+                                                <td class="shoping__cart__item">
+                                                    <img src="@ViewBag.URL/@item.product.image" style="width:50px;height:50px" alt="pp">
+                                                    <h5 style="text-align:right">@item.product.name</h5>
+                                                </td>
+                                                <td class="shoping__cart__price price">
+                                                    ₹@item.price
+                                                </td>
+                                                <td class="shoping__cart__quantity">
+
+                                                    @* <div class="pro-qty"> *@
+                                                     @* <input type="text" value="1" style="width:50%" min="1" class="qty" id="qty">  *@
+                                                     <input  class ="qty" type="number" value="1" style="width:50%" min="1" max="@item.product.quantity" id="qty"> 
+                                                    <input hidden class="price" id="price" value="@item.price">
+                                                    <input class="itemId" value="@item.id" hidden />
+
+                                                     @* </div>  *@
+
+
+
+                                                </td>
+                                                <td class="shoping__cart__total">
+                                                    @{
+                                                        var qua = item.quantity;
+                                                        var total = item.price;
+                                                        sum += total;
+                                                    }
+                                                    <input disabled class="total" id="total" value="₹@total" style="width:100%;font-weight: bold; border: none; background: none;">
+                                                </td>
+                                                <td>
+                                                    <a asp-action="RemoveItem" asp-controller="Cart" asp-route-id="@item.id" style="-webkit-text-fill-color:#7fad39;font-size:larger">
+                                                        ×
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4" style="text-align:center">
+                    <div class="card card-body rounded-3" style="width:100%; background-color:#f5f5f5;">
+                        <div class="shoping__checkout" style="margin-top:0px;background-color:ghostwhite">
+                            <h5>Cart Total</h5>
+                            <ul>
+                                <li>  <input disabled id="sum" value="₹@sum" style="width:100%; text-align:center;font-size:larger; font-weight: bold; -webkit-text-fill-color:red; border: none; background: none;"></li>
+
+                            </ul>
+                            <a asp-action="AddOrder" asp-controller="Order" class="primary-btn">CHECKOUT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shoping Cart Section End -->
+</body>
+</html>
+
+@section scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // const cartApi = "http://localhost:23883/" + "api/Cart/UpdateCart";
+            const cartItemApi = "http://localhost:23883/" + "api/Cart/UpdateCartItem";
+
+            $(".qty").change(function () {
+                var qtyInput = $(this);
+                var price = parseFloat(qtyInput.siblings('.price').val());
+                var qty = parseInt(qtyInput.val());
+                var total = price * qty;
+                var totalInput = qtyInput.closest('tr').find('.total');
+                totalInput.val("₹" + total);
+
+                var itemId = parseInt(qtyInput.siblings('.itemId').val())
+
+                // Recalculate the sum
+                var sum = 0;
+                $(".total").each(function () {
+                    sum += parseFloat($(this).val().replace('₹', ''));
+                });
+                $("#sum").val("₹" + sum);
+                
+                //debugger;
+                var newlink = cartItemApi + "?id="+ itemId +"&quantity="+ qty;
+                console.log(newlink);
+                        console.log(itemId);
+                        console.log(qty );
+                        console.log(price );
+
+                $.ajax({
+                    url: newlink,
+                    type: 'POST',
+                    data: {},
+                    success: function (data) {
+                        console.log("CartItem Updated");
+                    },
+                    error: function (xhr, status, error) {
+
+                    }
+                });
+            });
+        });
+    </script>
+    }

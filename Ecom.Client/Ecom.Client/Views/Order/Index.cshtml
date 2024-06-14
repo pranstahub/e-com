@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Ecom.Client.DTO.Response.OrderDTOResponse>
+
+@{
+    ViewData["Title"] = "Orders";
+    int count = 0;
+}
+
+<div class="section-title">
+    <h2>PREVIOUS ORDERS</h2>
+</div>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<table class="table table-striped table-hover border-2">
+    <thead>
+        <tr style="text-align:center">
+            <th>
+                SL No.
+            </th>
+            <th>
+                Order Date
+            </th>
+            <th>
+                Total Amount (₹)
+            </th>
+            <th>
+               Item Quantity
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count += 1;
+
+            <tr style="text-align:center">
+                <td>
+                    @count
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.orderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.total)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+       
+                <td>
+                    @* @Html.ActionLink("Details", "Details", new {  orderId=item.id }) *@
+                    <a style="color:#7fad39;" asp-action="Details" asp-route-orderId ="@item.id">Details</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

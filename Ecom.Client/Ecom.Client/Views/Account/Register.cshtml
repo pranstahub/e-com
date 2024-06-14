@@ -1,0 +1,62 @@
+﻿@model Ecom.Client.DTO.Request.RegisterDTORequest
+
+@{
+    ViewData["Title"] = "Register - eKom";
+    Layout = "_NoNavLayout";
+}
+
+<style>
+    body {
+        background-image: url("https://etfdb.com/media/W1siZiIsIjIwMjAvMDgvMTkvN2Z5Y3Y4MWx3c19SaXNlX29mX2VDb21tZXJjZV9Db250aW51ZXNfYW5kX1RoaXNfRVRGX1Nob3VsZF9CZW5lZml0LmpwZyJdLFsicCIsInRodW1iIiwiNjAweDMxNV4iXV0/Rise%20of%20eCommerce%20Continues%20and%20This%20ETF%20Should%20Benefit.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+    }
+</style>
+
+<br />
+<br />
+<br />
+
+<div class="card rounded-3 mx-auto shadow-3" style="width:50%; padding:15px; background-color:#fff8e1;">
+    <div class="card-body" style="text-align:center">
+        <img src="~/assets/img/logo.png" style="width:50%;">
+
+        <h4 class="card-title" style="text-align:center;-webkit-text-fill-color:#7fad39">REGISTER</h4>
+        <hr />
+        <div class="row" style="text-align:center">
+            <div class="col-md-12">
+                <form asp-action="Register">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="UserName" class="control-label" style=" -webkit-text-fill-color:#7fad39">E-mail ID</label>
+                        <input asp-for="UserName" class="form-control" style="text-align:center" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label" style=" -webkit-text-fill-color:#7fad39"></label>
+                        <input asp-for="Password" class="form-control" style="text-align:center" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword" class="control-label" style=" -webkit-text-fill-color:#7fad39"> Confirm Password</label>
+                        <input asp-for="ConfirmPassword" class="form-control" style="text-align:center" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input type="submit" value="Register" class="btn btn-success" style="background-color:#7fad39; color:white" /><br />
+                        <a style="color:#7fad39" asp-action="Login">Have Account?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

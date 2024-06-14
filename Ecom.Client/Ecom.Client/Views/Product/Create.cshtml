@@ -1,0 +1,99 @@
+﻿@model Ecom.Client.DTO.Request.ProductDTORequest
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="section-title">
+    <h2>ADD PRODUCT</h2>
+</div>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<div class="card rounded-3 " style="width:100%;  background-color:ghostwhite;">
+    <div class="card-body">
+        <div class="row" style="text-align:center">
+            <div class="col-md-12">
+                <form asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="form-group">
+                                <label asp-for="name" class="control-label"></label>
+                                <input asp-for="name" class="form-control" />
+                                <span asp-validation-for="name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label asp-for="categoryId" class="control-label"></label><br />
+                                <select asp-for="categoryId" class="form-control">
+                                    <option value="1">Clothing and Apparel</option>
+                                    <option value="2">Electronics</option>
+                                    <option value="3">Home and Furniture</option>
+                                    <option value="4">Books and Media</option>
+                                    <option value="5">Food and Groceries</option>
+                                    <option value="6">Sports and Outdoors</option>
+                                </select>
+                                <span asp-validation-for="categoryId" class="text-danger"></span>
+                            </div>
+                            
+                        </div>
+           
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="description" class="control-label"></label>
+                        <input asp-for="description" class="form-control" />
+                        <span asp-validation-for="description" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label asp-for="price" class="control-label"></label>
+                                <input asp-for="price" class="form-control" />
+                                <span asp-validation-for="price" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label asp-for="quantity" class="control-label"></label>
+                                <input asp-for="quantity" class="form-control" />
+                                <span asp-validation-for="quantity" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label asp-for="imageFile" class="control-label"> Image</label>
+                                <input asp-for="imageFile" class="form-control" type="file" />
+                                <span asp-validation-for="imageFile" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <br />
+                    <div class="form-group">
+                        <input type="submit" value="Add Product" style="background-color:#7fad39;color:white" class="btn btn-success" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+    <a style="color:#7fad39;" asp-action="Index">Back to Products</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

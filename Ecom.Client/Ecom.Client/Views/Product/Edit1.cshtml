@@ -1,0 +1,68 @@
+﻿@model Ecom.Client.DTO.Response.ProductDTOResponse
+
+@{
+    ViewData["Title"] = "Edit1";
+}
+
+<h1>Edit1</h1>
+
+<h4>ProductDTOResponse</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit1">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="id" class="control-label"></label>
+                <input asp-for="id" class="form-control" />
+                <span asp-validation-for="id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="description" class="control-label"></label>
+                <input asp-for="description" class="form-control" />
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="quantity" class="control-label"></label>
+                <input asp-for="quantity" class="form-control" />
+                <span asp-validation-for="quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="rating" class="control-label"></label>
+                <input asp-for="rating" class="form-control" />
+                <span asp-validation-for="rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="categoryId" class="control-label"></label>
+                <input asp-for="categoryId" class="form-control" />
+                <span asp-validation-for="categoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="image" class="control-label"></label>
+                <input asp-for="image" class="form-control" />
+                <span asp-validation-for="image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

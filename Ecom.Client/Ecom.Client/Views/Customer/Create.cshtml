@@ -1,0 +1,65 @@
+﻿@model Ecom.Client.DTO.Request.CustomerDTORequest
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_NoNavLayout";
+}
+<style>
+    body {
+        background-image: url("https://etfdb.com/media/W1siZiIsIjIwMjAvMDgvMTkvN2Z5Y3Y4MWx3c19SaXNlX29mX2VDb21tZXJjZV9Db250aW51ZXNfYW5kX1RoaXNfRVRGX1Nob3VsZF9CZW5lZml0LmpwZyJdLFsicCIsInRodW1iIiwiNjAweDMxNV4iXV0/Rise%20of%20eCommerce%20Continues%20and%20This%20ETF%20Should%20Benefit.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+    }
+</style>
+
+<br />
+<br />
+
+
+
+<div class="card rounded-3 mx-auto shadow-3" style="width:50%; height:100%; padding:15px; background-color:#fff8e1;">
+    <div class="card-body" style="text-align:center">
+        <img src="~/assets/img/logo.png" style="width:50%;">
+
+        <h2 class="card-title" style="text-align:center;-webkit-text-fill-color:#7fad39">Basic Profile Details</h2>
+        <hr />
+        <div class="row" style="text-align:center">
+            <div class="col-md-12">
+                <form asp-action="Create" enctype="multipart/form-data" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="name" class="control-label">Full Name</label>
+                        <input asp-for="name" class="form-control" style="text-align:center" />
+                        <span asp-validation-for="name" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="phone" class="control-label">Mobile Number</label>
+                        <input asp-for="phone" class="form-control" style="text-align:center" />
+                        <span asp-validation-for="phone" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group" style="text-align:center">
+                        <label asp-for="imageFile" class="control-label"> Profile Picture</label>
+                        <input asp-for="imageFile" class="form-control" type="file" />
+                        <span asp-validation-for="imageFile" class="text-danger"></span>
+
+@*                         <label for="imageFile" class="custom-file-label" >Profile Picture</label><br /><br />
+                        <input type="file" name="image" class="custom-file-input" >
+                        <span asp-validation-for="image" class="text-danger"></span> *@
+                    </div>
+                   <br />
+                    <div class="form-group">
+                        <input type="submit" value="Create Profile" class="btn btn-success" style="background-color:#7fad39; color:white" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
